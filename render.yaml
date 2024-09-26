@@ -1,0 +1,15 @@
+services:
+  - type: web
+    name: ftm-ott-genie
+    env: python
+    region: oregon
+    plan: free
+    buildCommand: pip install -r backend/requirements.txt
+    startCommand: gunicorn backend.app:app
+    autoDeploy: true
+    repo: https://github.com/ftmowner/FTM-OTT-GENIE
+    branch: main
+    healthCheckPath: /
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.9
