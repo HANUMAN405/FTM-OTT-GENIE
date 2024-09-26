@@ -2,10 +2,11 @@ document.getElementById('downloadForm').addEventListener('submit', async functio
     e.preventDefault();
     
     const videoLink = document.getElementById('videoLink').value;
+    const fileName = document.getElementById('fileName').value;
     const statusMessage = document.getElementById('statusMessage');
 
-    if (videoLink.trim() === "") {
-        statusMessage.textContent = "Please enter a valid video link.";
+    if (videoLink.trim() === "" || fileName.trim() === "") {
+        statusMessage.textContent = "Please enter both a valid video link and a filename.";
         return;
     }
 
@@ -17,7 +18,7 @@ document.getElementById('downloadForm').addEventListener('submit', async functio
             headers: {
                 'Content-Type': 'application/json',
             },
-            body: JSON.stringify({ link: videoLink }),
+            body: JSON.stringify({ link: videoLink, filename: fileName }),
         });
 
         const result = await response.json();
