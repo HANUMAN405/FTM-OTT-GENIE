@@ -18,10 +18,10 @@ def progress_hook(d):
         sys.stdout.write("\nDownload completed!\n")
         sys.stdout.flush()
 
-# Home route to serve the HTML file
+# Specify the path to the frontend templates directory
 @app.route('/')
 def index():
-    return render_template('index.html')
+    return render_template(os.path.join('frontend', 'index.html'))
 
 # Download route to handle video download
 @app.route('/download', methods=['POST'])
