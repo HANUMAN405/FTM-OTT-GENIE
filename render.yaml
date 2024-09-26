@@ -12,4 +12,4 @@ services:
     healthCheckPath: /
     envVars:
       - key: PYTHON_VERSION
-        value: 3.9
+        value: 3.8.10
