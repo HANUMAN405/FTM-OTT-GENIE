@@ -3,16 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
     <title>FTM OTT Genie</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <div class="container">
         <h1>FTM OTT Genie</h1>
-        <input type="text" id="videoLink" placeholder="Enter video link">
-        <button id="downloadBtn">Download</button>
-        <div id="status"></div>
+        <p>Download videos from OTT platforms by providing the video link and custom filename below:</p>
+        <form id="downloadForm">
+            <input type="text" id="videoLink" placeholder="Enter OTT video link" required>
+            <input type="text" id="fileName" placeholder="Enter custom filename" required>
+            <button type="submit">Download Video</button>
+        </form>
+        <p id="statusMessage"></p>
     </div>
+
     <script src="script.js"></script>
 </body>
 </html>
