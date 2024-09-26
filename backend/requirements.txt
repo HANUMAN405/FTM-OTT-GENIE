@@ -1,3 +1,4 @@
 Flask
 youtube_dl
 gunicorn
+yt_dlp
