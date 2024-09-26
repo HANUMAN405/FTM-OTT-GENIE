@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, send_file, send_from_directory  # Added send_from_directory
+from flask import Flask, render_template, request, send_file, send_from_directory
 import yt_dlp
 import os
 
@@ -21,7 +21,7 @@ def download():
             'key': 'FFmpegVideoConvertor',
             'preferedformat': 'mp4',
         }],
-        'quiet': True,
+        'quiet': False,  # Set to False for debug output
         'noplaylist': True,
     }
 
@@ -31,8 +31,11 @@ def download():
             info_dict = ydl.extract_info(url, download=True)
             video_title = ydl.prepare_filename(info_dict)
 
-        # Serve the file for download
-        return send_file(video_title, as_attachment=True)
+        # Check if the video file was created
+        if os.path.exists(video_title):
+            return send_file(video_title, as_attachment=True)
+        else:
+            return "Video was not downloaded. Please check the URL and try again."
 
     except Exception as e:
         return f"An error occurred: {str(e)}"
