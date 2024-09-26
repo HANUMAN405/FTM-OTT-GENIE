@@ -35,6 +35,7 @@ python backend/app.py
 ### Deploying to Render
 
 You can deploy the FTM OTT Genie application with Render by clicking the button below:
+
 [![Deploy to Render](https://render.com/images/deploy-to-render-button.svg)](https://render.com/deploy?repo=https://github.com/ftmowner/FTM-OTT-GENIE)
 
 
