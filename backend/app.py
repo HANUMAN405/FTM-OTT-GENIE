@@ -1,14 +1,10 @@
-from pytube import YouTube
-import os
+import yt_dlp
 
 video_url = 'https://youtu.be/-X4Ri2ctj78'
 
-cookie_path = "cookies.txt"  # Save your cookies to this file
+ydl_opts = {
+    'outtmpl': '%(title)s.%(ext)s',  # Save as video title
+}
 
-try:
-    yt = YouTube(video_url, use_oauth=True, allow_oauth_cache=True)
-    stream = yt.streams.get_highest_resolution()
-    stream.download()
-    print("Download completed!")
-except Exception as e:
-    print(f"Error: {e}")
+with yt_dlp.YoutubeDL(ydl_opts) as ydl:
+    ydl.download([video_url])
